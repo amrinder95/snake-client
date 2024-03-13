@@ -18,11 +18,19 @@ const handleUserInput = (key) => {
     "s": "Move: down",
     "d": "Move: right"
   }
+  const messages = {
+    "h": "Say: Hello!",
+    "g": "Say: Goodbye!",
+    "l": "LOL"
+  }
   if (key === '\u0003') {
     process.exit();
   }
   if (movementCommands[key]) {
     connection.write(movementCommands[key]);
+  }
+  if (messages[key]) {
+    connection.write(messages[key])
   }
 }
 

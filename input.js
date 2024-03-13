@@ -12,20 +12,17 @@ const setupInput = (conn) => {
 };
 
 const handleUserInput = (key) => {
+  const movementCommands = {
+    "w": "Move: up",
+    "a": "Move: left",
+    "s": "Move: down",
+    "d": "Move: right"
+  }
   if (key === '\u0003') {
     process.exit();
   }
-  if(key === "w") {
-    connection.write("Move: up");
-  }
-  if(key === "a") {
-    connection.write("Move: left");
-  }
-  if(key === "s") {
-    connection.write("Move: down");
-  }
-  if(key === "d") {
-    connection.write("Move: right");
+  if (movementCommands[key]) {
+    connection.write(movementCommands[key]);
   }
 }
 
